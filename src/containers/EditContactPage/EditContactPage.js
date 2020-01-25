@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react';
 import {editContact} from "../../store/actions";
 import {connect} from "react-redux";
 
+import './EditContactPage.css';
+
 class EditContactPage extends Component {
   state = {
     name: '',
