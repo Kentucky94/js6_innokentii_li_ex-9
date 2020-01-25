@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Layout from "./component/Layout/Layout";
+import {Route, Switch} from "react-router";
+import MainPage from "./containers/MainPage/MainPage";
+import AddContactPage from "./containers/AddContactPage/AddContactPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Switch>
+        <Route path='/' exact component={MainPage}/>
+        <Route path='/contacts/add' exact component={AddContactPage}/>
+        <Route path='/contacts/edit/:id' exact component={AddContactPage}/>
+        <Route render={() => <h2>PAGE NOT FOUND</h2>} />
+      </Switch>
+    </Layout>
   );
-}
+};
 
 export default App;
