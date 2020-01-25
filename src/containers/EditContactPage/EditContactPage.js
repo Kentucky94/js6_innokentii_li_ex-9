@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {editContact, postContact} from "../../store/actions";
+import {editContact} from "../../store/actions";
 import {connect} from "react-redux";
 
 class EditContactPage extends Component {

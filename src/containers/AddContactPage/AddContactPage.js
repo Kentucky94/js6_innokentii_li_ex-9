@@ -49,7 +49,7 @@ class AddContactPage extends Component {
           Phone: <input type="number" name='phone' onChange={this.onChangeDataHandler}/>
           Email: <input type="email" name='email' onChange={this.onChangeDataHandler}/>
           Photo: <input type="text" name='photo' onChange={this.onChangeDataHandler}/>
-          Photo preview: <img className='previewImg' src={img} alt="photo"/>
+          Photo preview: <img className='previewImg' src={img} alt="something"/>
           <button>SAVE</button>
           <button type='button' onClick={this.toMainPageHandler}>Back to contacts</button>
         </form>

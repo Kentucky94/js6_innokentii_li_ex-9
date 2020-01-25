@@ -5,7 +5,7 @@ import './ContactSummary.css';
 const ContactSummary = props => {
   return (
     <div className='ContactSummary'>
-      <img src={props.photo} alt="some photo"/>
+      <img src={props.photo} alt="something"/>
       <div>
         <h3>{props.name}</h3>
         <p>
