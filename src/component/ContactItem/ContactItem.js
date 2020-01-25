@@ -24,9 +24,13 @@ const ContactItem = props => {
         <b>{props.name}</b>
       </div>
       <Modal
-        id={props.id}
         show={showModal}
         close={closeModalHandler}
+        name={props.name}
+        phone={props.phone}
+        id={props.id}
+        photo={props.photo}
+        email={props.email}
       >
         <ContactSummary
           name={props.name}

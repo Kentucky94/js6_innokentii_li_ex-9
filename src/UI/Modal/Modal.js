@@ -1,9 +1,11 @@
 import React, {Fragment} from 'react';
 import Backdrop from "../Backdrop/Backdrop";
 
-import './Modal.css';
 import {deleteContact} from "../../store/actions";
 import {connect} from "react-redux";
+import {withRouter} from "react-router";
+
+import './Modal.css';
 
 const Modal = props => {
   const deleteCurrentContact = async (id) => {
@@ -11,6 +13,21 @@ const Modal = props => {
     await props.delete(id);
 
     props.close();
+  };
+
+  const toEditPage = async (id) => {
+    const contactData = {
+      name: props.name,
+      photo: props.photo,
+      phone: props.phone,
+      email: props.email,
+      id
+    };
+
+    props.history.push({
+      pathname: `/contacts/edit/${id}`,
+      contactData
+    })
   };
 
   return (
@@ -27,7 +44,7 @@ const Modal = props => {
       >
         {props.children}
         <div>
-          <button>Edit</button>
+          <button onClick={() => {toEditPage(props.id)}}>Edit</button>
           <button onClick={() => {deleteCurrentContact(props.id)}}>Delete</button>
           <button onClick={props.close}>Close</button>
         </div>
@@ -40,4 +57,4 @@ const mapDispatchToProps = dispatch => ({
   delete: id => dispatch(deleteContact(id))
 });
 
-export default connect(null ,mapDispatchToProps)(Modal);
+export default connect(null ,mapDispatchToProps)(withRouter(Modal));
