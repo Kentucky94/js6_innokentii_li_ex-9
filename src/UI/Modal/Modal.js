@@ -19,8 +19,8 @@ const Modal = props => {
       >
         {props.children}
         <div>
-          <button onClick={() => {props.toEdit(props.id)}}>Edit</button>
-          <button onClick={() => {props.toDelete(props.id)}}>Delete</button>
+          <button onClick={props.toEdit}>Edit</button>
+          <button onClick={props.toDelete}>Delete</button>
           <button onClick={props.close}>Close</button>
         </div>
       </div>

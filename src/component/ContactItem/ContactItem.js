@@ -20,24 +20,24 @@ const ContactItem = props => {
     setShowModal(true)
   };
 
-  const deleteCurrentContact = async (id) => {
+  const deleteCurrentContact = async () => {
 
-    await props.delete(id);
+    await props.delete(props.id);
 
     closeModalHandler();
   };
 
-  const toEditPage = async (id) => {
+  const toEditPage = async () => {
     const contactData = {
       name: props.name,
       photo: props.photo,
       phone: props.phone,
       email: props.email,
-      id
+      id: props.id,
     };
 
     props.history.push({
-      pathname: `/contacts/edit/${id}`,
+      pathname: `/contacts/edit/${props.id}`,
       contactData
     })
   };
@@ -58,7 +58,6 @@ const ContactItem = props => {
         <ContactSummary
           name={props.name}
           phone={props.phone}
-          id={props.id}
           photo={props.photo}
           email={props.email}
         />
